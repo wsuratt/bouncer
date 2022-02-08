@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import * as anchor from '@project-serum/anchor';
+import { Keypair } from '@solana/web3.js';
 import './App.css';
 import { encodeURL } from './encodeURL';
 import { createQR } from './createQR';
@@ -16,7 +17,7 @@ const MERCHANT_WALLET = new anchor.web3.PublicKey(
 
 function App() {
   const amount = new BigNumber(0.01);
-  const reference = CUSTOMER_WALLET
+  const reference = new Keypair().publicKey;
   const label = 'Jungle Cats store';
   const message = 'Jungle Cats store - your order - #001234';
   const memo = 'JC#4098';
