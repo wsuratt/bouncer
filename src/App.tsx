@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import * as anchor from '@project-serum/anchor';
 import './App.css';
@@ -24,27 +24,20 @@ function App() {
   const url = encodeURL({ recipient: MERCHANT_WALLET, amount, reference, label, message, memo });
   const qrCode = createQR(url);
 
-  // get a handle of the element
-  const element = document.getElementById('qr-code')!;
-
-  // append QR code to the element
-  if (element.childNodes.length == 0)
-  {
-    qrCode.append(element);
-  }
+  useEffect(() => {
+    // get a handle of the element
+    const element = document.getElementById('qr-code')!;
+    // append QR code to the element
+    if (element.childNodes.length == 0)
+    {
+      qrCode.append(element);
+    }
+  },[])
 
   return (
     <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>penis</p>
+      <div id="qr-code"></div>
     </div>
   );
 }
