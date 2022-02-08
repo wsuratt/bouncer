@@ -28,10 +28,7 @@ function App() {
     // get a handle of the element
     const element = document.getElementById('qr-code')!;
     // append QR code to the element
-    if (element.childNodes.length == 0)
-    {
-      qrCode.append(element);
-    }
+    qrCode.append(element);
   },[])
 
   return (
